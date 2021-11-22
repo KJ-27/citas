@@ -5,7 +5,7 @@ const Formulario = ({ crearCita }) => {
   //Crear el State de Citas
   const [cita, actualizarCita] = useState({
     mascota: "",
-    propietrario: "",
+    propietario: "",
     fecha: "",
     hora: "",
     sintomas: "",
@@ -22,7 +22,7 @@ const Formulario = ({ crearCita }) => {
   };
 
   //Extraer los valores
-  const { mascota, propietrario, fecha, hora, sintomas } = cita;
+  const { mascota, propietario, fecha, hora, sintomas } = cita;
 
   //Cuando se preciona Agregar Cita
   const submitCita = (e) => {
@@ -31,7 +31,7 @@ const Formulario = ({ crearCita }) => {
     //Validar
     if (
       mascota.trim() === "" ||
-      propietrario === "" ||
+      propietario === "" ||
       fecha === "" ||
       hora === "" ||
       sintomas === ""
@@ -51,7 +51,7 @@ const Formulario = ({ crearCita }) => {
     //Reiniciar el form
     actualizarCita({
       mascota: "",
-      propietrario: "",
+      propietario: "",
       fecha: "",
       hora: "",
       sintomas: "",
@@ -80,11 +80,11 @@ const Formulario = ({ crearCita }) => {
         <label>Nombre Dueño</label>
         <input
           type="text"
-          name="propietrario"
+          name="propietario"
           className="u-full-width"
           placeholder="Nombre Dueño de la Mascota"
           onChange={actualizarState}
-          value={propietrario}
+          value={propietario}
         />
 
         <label>Fecha</label>

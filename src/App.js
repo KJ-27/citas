@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import Formulario from "./components/Formulario.js";
+import Cita from "./components/Cita";
 
 function App() {
   //Arregle de Citas
@@ -8,6 +9,12 @@ function App() {
   //Funcionar para guardar citas
   const crearCita = (cita) => {
     guardarCitas([...citas, cita]);
+  };
+
+  //Eliminar Cita por ID
+  const elimarCita = (id) => {
+    const nuevasCitas = citas.filter((cita) => cita.id !== id);
+    guardarCitas(nuevasCitas);
   };
 
   return (
@@ -19,7 +26,12 @@ function App() {
           <div className="one-half column">
             <Formulario crearCita={crearCita} />
           </div>
-          <div className="one-half column">Citas agregadas</div>
+          <div className="one-half column">
+            <h2>Administra tus citas</h2>
+            {citas.map((cita) => (
+              <Cita key={cita.id} cita={cita} eliminarCita={elimarCita} />
+            ))}
+          </div>
         </div>
       </div>
     </Fragment>
